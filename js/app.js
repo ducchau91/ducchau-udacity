@@ -42,16 +42,16 @@ function buildNav() {
 			let li = document.createElement('li');
 			let navItemLink = document.createElement('a');
 			navItemLink.textContent = currentSectionName;
-			navItemLink.classList.add('menu__link');
-			navItemLink.setAttribute('id', `${currentSectionId}__link`);
+			li.classList.add('menu__link');
+			li.setAttribute('id', `${currentSectionId}__link`);
 			navItemLink.setAttribute('href', `#${currentSectionId}`);
 			if (section.classList.contains('your-active-class')) {
-			navItemLink.classList.add('active');
+			li.classList.add('active');
 			}
-			li.setAttribute('class', 'navbar__item');
 			li.onclick = function(e) {
 			e.preventDefault();
-			document.querySelector(`#${currentSectionId}`).scrollIntoView({
+			
+					document.querySelector(`#${currentSectionId}`).scrollIntoView({
 				behavior: 'smooth'
 			});
 		}
@@ -67,15 +67,16 @@ function buildNav() {
 function activeSection() {
     for (let item of sections) {
         const position = item.getBoundingClientRect();
+        const link = document.querySelector(`#${item.id}__link`);
         if (position.top <= 150 && position.bottom >= 150) {
             item.classList.add('your-active-class');
+            link.classList.add('active');
         } else {
             item.classList.remove('your-active-class');
+            link.classList.remove('active');
     }; 
 };
 }
-activeSection();
-
 window.addEventListener("scroll", activeSection);
 
 
@@ -96,5 +97,6 @@ window.addEventListener("scroll", activeSection);
 buildNav();
 
 // Scroll to section on link click
+activeSection();
 
 // Set sections as active
