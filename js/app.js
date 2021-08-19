@@ -33,22 +33,22 @@ let currentActiveElem = document.querySelector('.active');
  * 
 */
 
-// build the nav
+// build the nav fucntion
 function buildNav() {
 	for (let section of sections) {
 		const currentSectionId = section.getAttribute('id');
 		if(section.attributes['data-nav']){
 			const currentSectionName = section.getAttribute('data-nav');
-			let li = document.createElement('li');
-			let navItemLink = document.createElement('a');
-			navItemLink.textContent = currentSectionName;
-			li.classList.add('menu__link');
-			li.setAttribute('id', `${currentSectionId}__link`);
-			navItemLink.setAttribute('href', `#${currentSectionId}`);
-			if (section.classList.contains('your-active-class')) {
+			let li = document.createElement('li'); //add list item
+			let navItemLink = document.createElement('a'); //add link to each item
+			navItemLink.textContent = currentSectionName; //set name of item
+			li.classList.add('menu__link'); //set class menu link for item
+			li.setAttribute('id', `${currentSectionId}__link`); //assign section for item to match with corresponding section
+			navItemLink.setAttribute('href', `#${currentSectionId}`); //add hyperlink
+			if (section.classList.contains('your-active-class')) { //if section is active, set class of nav bar item to active
 			li.classList.add('active');
 			}
-			li.onclick = function(e) {
+			li.onclick = function(e) { //function to scroll to the section when clicked
 			e.preventDefault();
 			
 					document.querySelector(`#${currentSectionId}`).scrollIntoView({
@@ -64,20 +64,20 @@ function buildNav() {
 
 // Add class 'active' to section when near top of viewport
 
-function activeSection() {
+function activeSection() { 
     for (let item of sections) {
-        const position = item.getBoundingClientRect();
+        const position = item.getBoundingClientRect(); 
         const link = document.querySelector(`#${item.id}__link`);
-        if (position.top <= 150 && position.bottom >= 150) {
+        if (position.top <= 150 && position.bottom >= 150) { //set the area in view zone as active
             item.classList.add('your-active-class');
             link.classList.add('active');
-        } else {
+        } else { //set other sections which are not in view zone to inactive
             item.classList.remove('your-active-class');
             link.classList.remove('active');
     }; 
 };
 }
-window.addEventListener("scroll", activeSection);
+window.addEventListener("scroll", activeSection);//listen for scroll to choose active session
 
 
 // Scroll to anchor ID using scrollTO event

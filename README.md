@@ -1,13 +1,35 @@
-# Landing Page Project
+# Landing Page 
+This is the "Landing Page" project from Udacity's "Front End Development' nanodegree course.
 
-## Table of Contents
+## Table of content:
 
-* [Instructions](#instructions)
+ - Languages used
+ - Installation 
+ - Most important functions
 
-## Instructions
+### Languages used:
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+ - HTML
+ (index.html)
+ - CSS
+ (css/styles.css)
+ - Javascript
+ ( js/app.js)
+ 
+ ### Installation:
+ 
+ Open index.html file and make sure css and js folders in same folder of index.html
 
-To get started, open `js/app.js` and start building out the app's functionality
+ ### Description
+ This project involves in building the javascript with following functionalities:
+ 1. Auto populate navigation bar and its items based on the number of sections
+ 2. Clicking on "section" in the nav bar will scroll to the corresponding active session
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+### Functions built:
+
+ - buildNav()
+ - activeSession()
+
+
+
+ 
